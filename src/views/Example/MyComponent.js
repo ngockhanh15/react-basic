@@ -8,24 +8,26 @@ class MyComponent extends React.Component {
     */
     // key:value
     state = {
-        name: 'Khanh',
+        name: '',
         class: 'CNTT'
 
     }
 
     handleOnChangeName = (event) => {
+        // this.state.name = event.target.value //bad code
+        //merge
         this.setState({
             name: event.target.value
         })
     }
 
     handleClickButton = () => {
-        console.log('hit the button')
         alert('click me')
     }
 
+    // re-render
     render() {
-
+        console.log('>>> call render: ', this.state)
         return (
             <>
                 <div className="first">
@@ -38,7 +40,7 @@ class MyComponent extends React.Component {
                     My class: {this.state.class}
                 </div>
                 <div className="third">
-                    <button onClick={()=> this.handleClickButton()}>Click me</button>
+                    <button onClick={() => this.handleClickButton()}>Click me</button>
                 </div>
             </>
         )
